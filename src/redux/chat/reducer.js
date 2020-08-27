@@ -4,14 +4,14 @@ const INITIAL_STATE = {
     messages:["La concha de la lora","Hola que mas"],
     inputMessage:""
 };
-  
+
   export const chatReducer = (previousState = INITIAL_STATE, action) => {
 
     switch (action.type) {
       case "SEND":
-        return { ...previousState, messages:[...previousState.inputMessage]};
+        return { ...previousState, messages:[...previousState.messages, previousState.inputMessage]};
       case "SET_INPUT_VALUE":
-        return { ...previousState, inputMessage: previousState.inputMessage};
+        return { ...previousState, inputMessage: action.payload};
       case "TOGGLE_CART":
         return { ...previousState};
       default:

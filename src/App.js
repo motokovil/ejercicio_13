@@ -7,18 +7,19 @@ import {send, setInputValue} from "./redux/chat/actions"
 function App() {
 
   const { chatReducer } = store.getState();
-  const products = chatReducer.messages;
+  const messages = chatReducer.messages;
+
   return (
     <div className="App">
-      {products.map((item,i)=>{
+      {messages.map((item,i)=>{
         return <h1 key={i} >{item}</h1>
       })}
       
         <input
           type="text"
-          onChange={()=>store.dispatch(setInputValue())}
+          onChange={(e)=>store.dispatch(setInputValue(e.target.value))}
         />
-        <button onClick={()=>store.dispatch(send())}>Send</button>
+        <button onClick={()=>store.dispatch(send(chatReducer.inputMessage))}>Send</button>
       
     </div>
   );
