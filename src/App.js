@@ -1,27 +1,31 @@
 import React from 'react';
 import './App.css';
-//Redux
-import store from "./redux/store";
-import {send, setInputValue} from "./redux/chat/actions"
+
+//Components
+import MArea from './components/messageArea'
+import MContainer from './components/messageContainer'
+
+//Material UI
+import {Box} from '@material-ui/core'
+import {makeStyles} from "@material-ui/core/styles"
+
+const useStyles = makeStyles(({
+  body:{
+    height:"100vh",
+    display:"flex",
+    flexDirection:"column",
+    justifyContent:"space-between",
+  }
+}))
 
 function App() {
-
-  const { chatReducer } = store.getState();
-  const messages = chatReducer.messages;
+  const classes = useStyles()
 
   return (
-    <div className="App">
-      {messages.map((item,i)=>{
-        return <h1 key={i} >{item}</h1>
-      })}
-      
-        <input
-          type="text"
-          onChange={(e)=>store.dispatch(setInputValue(e.target.value))}
-        />
-        <button onClick={()=>store.dispatch(send(chatReducer.inputMessage))}>Send</button>
-      
-    </div>
+    <Box className={classes.body}>
+      <MContainer/>
+      <MArea/>
+    </Box>
   );
 }
 

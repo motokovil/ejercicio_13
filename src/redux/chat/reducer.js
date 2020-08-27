@@ -1,7 +1,7 @@
 //Reacciona a la acción que se está realizando/ejecutando en el momento y se le conocen como funciones puras
 
 const INITIAL_STATE = {
-    messages:["La concha de la lora","Hola que mas"],
+    messages:[],
     inputMessage:""
 };
 
