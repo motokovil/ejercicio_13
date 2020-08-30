@@ -11,8 +11,7 @@ import {makeStyles} from "@material-ui/core/styles"
 
 const useStyles = makeStyles(({
   body:{
-    height:"90vh",
-    maxWidth:"300px",
+    width:"350px",
     display:"flex",
     flexDirection:"column",
     justifyContent:"space-between",
@@ -20,7 +19,8 @@ const useStyles = makeStyles(({
   html:{
     display:"flex",
     justifyContent:"center",
-
+    alignItems:"center",
+    height:"100vh",
   }
 }))
 

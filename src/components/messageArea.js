@@ -14,9 +14,6 @@ const useStyles = makeStyles((theme)=>({
     inputRoot: {
       color: 'inherit',
     },
-    appbar:{
-        height:"10vh"
-    },
     toolbar:{
         display:"flex",
         justifyContent:"space-between",
@@ -43,7 +40,7 @@ export default function MArea () {
                 <Toolbar 
                     className={classes.toolbar}
                 >
-
+                    <form>
                     <InputBase
                       placeholder="Escribe un mensaje…"
                       classes={{
@@ -56,13 +53,16 @@ export default function MArea () {
 
                     <IconButton 
                       component="span"
-                      onClick={()=>store.dispatch(send(chatReducer.inputMessage))}
+                      onClick={(e)=>{
+                        e.preventDefault()
+                        store.dispatch(send(chatReducer.inputMessage))
+                      }}
                     >
                         <Icon style={{ color: "white" }}>
                             send
                         </Icon>
                     </IconButton>
-
+                    </form>
                 </Toolbar>
             </AppBar>
         </Box>

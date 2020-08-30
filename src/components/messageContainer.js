@@ -5,6 +5,7 @@ import store from "../redux/store";
 import {Container} from "@material-ui/core"
 import IconButton from '@material-ui/core/IconButton'
 import {makeStyles} from "@material-ui/core/styles"
+import List from '@material-ui/core/List';
 //Material UI AppBar
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -22,15 +23,14 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
     },
     container:{
-        height:"70vh",
+        height:"80vh",
         overflow:"auto",
-
-        flexDirection:"column",
-        alignItems:"flex-start"
+        flexDirection:"column-reverse",
     },
-    appbar:{
-        height:"10vh",
-    }
+    root: {
+      width: '100%',
+      maxWidth: 360,
+    },
 }));
 
 export default function MContainer(){
@@ -59,11 +59,16 @@ export default function MContainer(){
             <Container
               className={classes.container}
             >
+              <List
+                component="nav"
+                className={classes.root}
+              >
                 {messages.map((item,i)=>{
                     return (
-                        <MItem index={i} key={i} content={item}/>
+                        <MItem index={i} key={i} content={item.messages} date={item.date}/>
                     );
                 })}
+              </List>
             </Container>
         </div>
     )

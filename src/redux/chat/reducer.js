@@ -9,7 +9,11 @@ const INITIAL_STATE = {
     let messages=[]
     switch (action.type) {
       case "SEND":
-        return { ...previousState, messages:[...previousState.messages, previousState.inputMessage]};
+        messages={
+          date: new Date(),
+          messages: previousState.inputMessage
+        }
+        return { ...previousState, messages:[...previousState.messages, messages]};
       case "SET_INPUT_VALUE":
         return { ...previousState, inputMessage: action.payload};
       case "DELETE":
