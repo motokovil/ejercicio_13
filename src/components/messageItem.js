@@ -45,7 +45,7 @@ export default function MItem(props){
                 button onClick={handleClick}
                 className={classes.item}
             >
-              <ListItemText primary={props.content} />
+              <ListItemText primary={props.content} /> 
               {open ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
 
