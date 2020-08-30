@@ -17,7 +17,7 @@ import MItem from './messageItem'
 
 const useStyles = makeStyles((theme) => ({
     menuButton: {
-      marginRight: theme.spacing(2),
+      marginRight: theme.spacing(2), 
     },
     title: {
       flexGrow: 1,
