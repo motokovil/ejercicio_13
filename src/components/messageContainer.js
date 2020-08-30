@@ -22,11 +22,11 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
     },
     container:{
-        height:"80vh",
+        height:"70vh",
         overflow:"auto",
-        display:"flex",
+
         flexDirection:"column",
-        alignItems:"flex-end"
+        alignItems:"flex-start"
     },
     appbar:{
         height:"10vh",
@@ -61,7 +61,7 @@ export default function MContainer(){
             >
                 {messages.map((item,i)=>{
                     return (
-                        <MItem key={i} content={item}/>
+                        <MItem index={i} key={i} content={item}/>
                     );
                 })}
             </Container>

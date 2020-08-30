@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme)=>({
         borderRadius:"5px",
         marginRight:"10px",
         paddingLeft:"10px",
-        width:"80vw"
+
     }
 }))
 

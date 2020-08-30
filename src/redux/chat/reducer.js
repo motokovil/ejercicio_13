@@ -6,14 +6,16 @@ const INITIAL_STATE = {
 };
 
   export const chatReducer = (previousState = INITIAL_STATE, action) => {
-
+    let messages=[]
     switch (action.type) {
       case "SEND":
         return { ...previousState, messages:[...previousState.messages, previousState.inputMessage]};
       case "SET_INPUT_VALUE":
         return { ...previousState, inputMessage: action.payload};
-      case "TOGGLE_CART":
-        return { ...previousState};
+      case "DELETE":
+        messages = [...previousState.messages];
+        messages.splice(action.payload, 1);
+        return { ...previousState, messages: messages };;
       default:
         return previousState;
     }
